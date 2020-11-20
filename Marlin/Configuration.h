@@ -748,14 +748,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 410, 143 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 10, 20 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -768,7 +768,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 300, 6000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1129,16 +1129,16 @@
 // @section machine
 
 //   offset   border      usable      border
-//  X:   -2 <- | 10 | 235 - 2 * 10 = 215 | 10 |
-//  Y:  -13 <- | 25 | 235 - 2 * 25 = 185 | 25 |
+//  X:   -4 <- | 10 | 230 - 2 * 10 = 210 | 10 |
+//  Y:  -15 <- | 10 | 230 - 2 * 10 = 210 | 10 |
 
 // The size of the print bed
-#define X_BED_SIZE 215
-#define Y_BED_SIZE 185
+#define X_BED_SIZE 210
+#define Y_BED_SIZE 210
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -12
-#define Y_MIN_POS -38
+#define X_MIN_POS -14
+#define Y_MIN_POS -25
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE - X_MIN_POS)
 #define Y_MAX_POS (Y_BED_SIZE - Y_MIN_POS)
@@ -1423,8 +1423,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT 10  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT 10  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
